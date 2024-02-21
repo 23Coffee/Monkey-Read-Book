@@ -1,4 +1,5 @@
 
+import 'package:booker_project/screen/book.dart';
 import 'package:booker_project/screen/login.dart';
 import 'package:booker_project/screen/signinfo.dart';
 import 'package:booker_project/screen/signup.dart';
@@ -16,6 +17,8 @@ void main() async {
       appId: "1:1035452793612:android:f0fa0d4f288aa7a32dbf29",
       messagingSenderId: "1035452793612",
       projectId: "test1-4abd3", 
+      storageBucket: "gs://test1-4abd3.appspot.com",
+      
     ),
   );
   runApp(MyApp());
@@ -31,6 +34,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         SignUpPage.id: (context) => SignUpPage(),
         Confirmation.id: (context) => Confirmation(),
+        BookSearchPage.id: (context) => BookSearchPage(),
       },
     );
   }

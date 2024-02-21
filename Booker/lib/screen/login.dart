@@ -1,6 +1,7 @@
 
 import 'package:booker_project/components/rounded_button.dart';
 import 'package:booker_project/constrant.dart';
+import 'package:booker_project/screen/book.dart';
 import 'package:booker_project/screen/signinfo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   final user = await _auth.signInWithEmailAndPassword(
                       email: email, password: password);
                   if (user != null) {
-                    Navigator.pushNamed(context, Confirmation.id);
+                    Navigator.pushNamed(context, BookSearchPage.id);
                   }
                 } catch (e) {
                   print(e);

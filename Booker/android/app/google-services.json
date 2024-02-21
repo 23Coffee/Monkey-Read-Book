@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1035452793612",
+    "project_id": "test1-4abd3",
+    "storage_bucket": "test1-4abd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035452793612:android:f0fa0d4f288aa7a32dbf29",
+        "android_client_info": {
+          "package_name": "com.pattaradnai.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuZwACFk5raByCKz04V0g0rpcIIUbgto4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
