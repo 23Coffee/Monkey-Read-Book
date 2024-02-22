@@ -1,9 +1,9 @@
 
-import 'package:booker_project/screen/book.dart';
-import 'package:booker_project/screen/login.dart';
-import 'package:booker_project/screen/signinfo.dart';
-import 'package:booker_project/screen/signup.dart';
-import 'package:booker_project/screen/home.dart';
+import 'package:booker/screen/book.dart';
+import 'package:booker/screen/home.dart';
+import 'package:booker/screen/login.dart';
+import 'package:booker/screen/signinfo.dart';
+import 'package:booker/screen/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

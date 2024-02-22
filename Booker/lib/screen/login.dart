@@ -1,8 +1,7 @@
 
-import 'package:booker_project/components/rounded_button.dart';
-import 'package:booker_project/constrant.dart';
-import 'package:booker_project/screen/book.dart';
-import 'package:booker_project/screen/signinfo.dart';
+import 'package:booker/components/rounded_button.dart';
+import 'package:booker/constrant.dart';
+import 'package:booker/screen/book.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

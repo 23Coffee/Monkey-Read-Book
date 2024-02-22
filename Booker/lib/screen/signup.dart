@@ -1,6 +1,6 @@
-import 'package:booker_project/components/input.dart';
-import 'package:booker_project/screen/login.dart';
-import 'package:booker_project/screen/signinfo.dart';
+import 'package:booker/components/input.dart';
+import 'package:booker/screen/login.dart';
+import 'package:booker/screen/signinfo.dart';
 import 'package:flutter/material.dart';
 
 

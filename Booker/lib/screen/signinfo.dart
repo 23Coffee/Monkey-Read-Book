@@ -1,8 +1,10 @@
-import 'package:booker_project/screen/login.dart';
+import 'package:booker/components/input.dart';
+import 'package:booker/screen/login.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:booker_project/components/input.dart';
+
 
 
 class Confirmation extends StatefulWidget {

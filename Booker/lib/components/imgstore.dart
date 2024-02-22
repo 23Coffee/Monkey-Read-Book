@@ -1,24 +1,35 @@
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class FireStoreDataBase {
-  String? downloadURL;
+  // Define a getter method to access the download URL
+  String? _downloadURL;
 
-  Future getData() async {
+  // Getter method to access the download URL
+  String? get downloadURL => _downloadURL;
+
+  // Method to fetch data
+  Future<String?> getData() async {
     try {
+      // Call the method to fetch download URL
       await downloadURLExample();
-      return downloadURL;
+      // Return the download URL
+      return _downloadURL;
     } catch (e) {
+      // Print and handle errors
       debugPrint("Error - $e");
       return null;
     }
   }
 
+  // Method to fetch download URL from Firebase Storage
   Future<void> downloadURLExample() async {
-    downloadURL = await FirebaseStorage.instance
+    // Get download URL for a specific file (e.g., user-login.png)
+    _downloadURL = await FirebaseStorage.instance
         .ref()
         .child("user-login.png")
         .getDownloadURL();
-    debugPrint(downloadURL.toString());
+    // Print the download URL for debugging
+    debugPrint(_downloadURL.toString());
   }
 }

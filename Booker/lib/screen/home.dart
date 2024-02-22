@@ -1,8 +1,8 @@
-import 'package:booker_project/components/imgstore.dart';
+import 'package:booker/components/imgstore.dart';
+import 'package:booker/components/rounded_button.dart';
+import 'package:booker/screen/login.dart';
+import 'package:booker/screen/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:booker_project/components/rounded_button.dart';
-import 'package:booker_project/screen/login.dart';
-import 'package:booker_project/screen/signup.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -12,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Container( 
-        height: MediaQuery.of(context).size.height, 
+      body: Container(
+        height: MediaQuery.of(context).size.height,
         child: Center(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -37,26 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  FutureBuilder(
-                    future: FireStoreDataBase().getData(), // Assuming this method fetches the image URL from Firestore
-                    builder: (context, snapshot) {
-                      if (snapshot.hasError) {
-                        return Text(
-                          "Something went wrong: ${snapshot.error}",
-                        );
-                      }
-                      if (snapshot.connectionState == ConnectionState.done) {
-                        // Use Image.network with the fetched URL
-                        return Image.network(
-                          snapshot.data.toString(),
-                          alignment: Alignment.center,
-                          height: 300,
-                          width: 300,
-                        );
-                      }
-                      // Return a loading indicator while fetching data
-                      return Center(child: CircularProgressIndicator());
-                    },
+                  // Replace FutureBuilder with Image.asset
+                  Image.asset(
+                    'assets/user-login.png', // Adjust the asset path as needed
+                    alignment: Alignment.center,
+                    height: 300,
+                    width: 300,
                   ),
                   SizedBox(
                     height: 48.0,
