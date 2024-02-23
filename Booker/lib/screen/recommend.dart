@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:booker/screen/ebook.dart'; // Import the EbookScreen page
 
 class ListPage extends StatefulWidget {
-  static const String id = 'list_page'; // Define the id property
+  static const String id = 'list_page';
 
   @override
   _ListPageState createState() => _ListPageState();
@@ -12,51 +15,69 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
           "Recommendation Books",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
-
-      body: ListView(
-        shrinkWrap: true,
-        padding: const EdgeInsets.fromLTRB(2.0, 10.0, 2.0, 10.0),
-        children: <Widget>[
-          ProductBoxUrl(
-            book_name: "HARRY POTTER AND THE PHILOSOPHER'S STONE",
-            author: "J. K. ROWLING",
-            rating: "3.65/5",
-            image: "https://api.chulabook.com/images/pid-109873.jpeg",
-          ),
-          // Add other ProductBoxUrl widgets
-          ProductBoxUrl(
-              book_name: "HARRY POTTER AND THE PRISONER OF AZKABAN",
-              author: "J. K. ROWLING",
-              rating: "3.8/5",
-              image: "https://api.chulabook.com/images/pid-7308.jpg"),
-          ProductBoxUrl(
-              book_name: "HARRY POTTER AND THE ORDER OF THE PHOENIX",
-              author: "J. K. ROWLING",
-              rating: "4.5/5",
-              image: "https://api.chulabook.com/images/pid-110189.jpg"),
-          ProductBoxUrl(
-              book_name: "HARRY POTTER AND THE HALF-BLOOD PRINCE",
-              author: "J. K. ROWLING",
-              rating: "3.2/5",
-              image: "https://api.chulabook.com/images/pid-110190.jpg"),
-          ProductBoxUrl(
-              book_name: "HARRY POTTER AND THE GOBLET OF FIRE",
-              author: "J. K. ROWLING",
-              rating: "4.7/5",
-              image: "https://api.chulabook.com/images/pid-137954.jpg"),
-        ],
+      body: FutureBuilder(
+        future: Firebase.initializeApp(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasError) {
+            return Center(child: Text('Error initializing Firebase: ${snapshot.error}'));
+          }
+          return StreamBuilder(
+            stream: FirebaseFirestore.instance.collection('Recommendation').snapshots(),
+            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError) {
+                return Center(child: Text('Error fetching data from Firestore: ${snapshot.error}'));
+              }
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (context, index) {
+                  var document = snapshot.data!.docs[index];
+                  return MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () {
+                        if (document['book_name'] == "HARRY POTTER AND THE PHILOSOPHER'S STONE") {
+                          Navigator.pushNamed(context, EbookScreen.id);
+                        }
+                      },
+                      child: ProductBoxUrl(
+                        book_name: document['book_name'],
+                        author: document['author'],
+                        rating: document['rating'],
+                        image: document['image'],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -97,7 +118,7 @@ class ProductBoxUrl extends StatelessWidget {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text(this.author),
-                    Text("rating: " + this.rating.toString()),
+                    Text("Rating: " + this.rating),
                   ],
                 ),
               ),

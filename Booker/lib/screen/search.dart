@@ -98,7 +98,18 @@ class _BookSearchPageState extends State<BookSearchPage> {
                       _searchBooks(_searchController.text);
                     }
                   },
-                  child: Text('Search'),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0), // Adjust border radius as needed
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    'Search',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),
@@ -114,7 +125,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
                           return ListTile(
                             leading: book.imageUrl != null
                                 ? Image.network(book.imageUrl!)
-                                : SizedBox.shrink(), // Display image if available
+                                : SizedBox.shrink(),
                             title: Text(book.title),
                             subtitle: Text(book.author),
                           );

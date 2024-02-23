@@ -1,5 +1,6 @@
 
-import 'package:booker/screen/book.dart';
+import 'package:booker/screen/search.dart';
+import 'package:booker/screen/ebook.dart';
 import 'package:booker/screen/home.dart';
 import 'package:booker/screen/recommend.dart';
 import 'package:booker/screen/login.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         Confirmation.id: (context) => Confirmation(),
         BookSearchPage.id: (context) => BookSearchPage(),
         ListPage.id: (context) => ListPage(),
+        EbookScreen.id: (context) => EbookScreen(),
       },
     );
   }

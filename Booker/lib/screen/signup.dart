@@ -1,6 +1,7 @@
 import 'package:booker/components/input.dart';
 import 'package:booker/screen/login.dart';
 import 'package:booker/screen/signinfo.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 
@@ -11,10 +12,9 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-
-
 class _SignUpPageState extends State<SignUpPage> {
-  
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Add form key
+
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _password2Controller = TextEditingController();
   TextEditingController _nameController = TextEditingController();
@@ -62,115 +62,141 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/user-login.png",
-                  width: 100,
-                  height: 100,
-                ),
-                Text(
-                  "Sign Up",
-                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                FormContainerWidget(
-                  controller: _nameController,
-                  hintText: "Name",
-                  isPasswordField: false,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                FormContainerWidget(
-                  controller: _surnameController,
-                  hintText: "Surname",
-                  isPasswordField: false,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                FormContainerWidget(
-                  controller: _emailController,
-                  hintText: "Email",
-                  isPasswordField: false,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                FormContainerWidget(
-                  controller: _phoneNumberController,
-                  hintText: "Phone number",
-                  isPasswordField: false,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                FormContainerWidget(
-                  controller: _passwordController,
-                  hintText: "Password",
-                  isPasswordField: true,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                FormContainerWidget(
-                  controller: _password2Controller,
-                  hintText: "Confirm Password",
-                  isPasswordField: true,
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                GestureDetector(
-                  onTap: _navigateToNextPage,
-                  child: Container(
-                    width: double.infinity,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: isSigningUp
-                          ? CircularProgressIndicator(color: Colors.white)
-                          : Text(
-                              "Sign Up",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                    ),
+            child: Form(
+              key: _formKey, // Assign form key
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/user-login.png",
+                    width: 100,
+                    height: 100,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Already have an account?"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Navigate to login page
-                         Navigator.pushNamed(context, LoginScreen.id);
-                      },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
+                  Text(
+                    "Sign Up",
+                    style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 30),
+                  FormContainerWidget(
+                    controller: _nameController,
+                    hintText: "Name",
+                    isPasswordField: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your name';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  FormContainerWidget(
+                    controller: _surnameController,
+                    hintText: "Surname",
+                    isPasswordField: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your surname';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  FormContainerWidget(
+                    controller: _emailController,
+                    hintText: "Email",
+                    isPasswordField: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter an email';
+                      } else if (!EmailValidator.validate(value)) {
+                        return 'Please enter a valid email';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  FormContainerWidget(
+                    controller: _phoneNumberController,
+                    hintText: "Phone number",
+                    isPasswordField: false,
+                  ),
+                  SizedBox(height: 10),
+                  FormContainerWidget(
+                    controller: _passwordController,
+                    hintText: "Password",
+                    isPasswordField: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter a password';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  FormContainerWidget(
+                    controller: _password2Controller,
+                    hintText: "Confirm Password",
+                    isPasswordField: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm your password';
+                      } else if (value != _passwordController.text) {
+                        return 'Passwords do not match';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 30),
+                  GestureDetector(
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        // If the form is valid, proceed with sign up
+                        _navigateToNextPage();
+                      }
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: isSigningUp
+                            ? CircularProgressIndicator(color: Colors.white)
+                            : Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Already have an account?"),
+                      SizedBox(width: 5),
+                      GestureDetector(
+                        onTap: () {
+                          // Navigate to login page
+                          Navigator.pushNamed(context, LoginScreen.id);
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
