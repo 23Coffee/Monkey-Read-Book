@@ -49,7 +49,19 @@ class _BookSearchPageState extends State<BookSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Search'),
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Center(
+          child: Text(
+            'Book Search',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
         actions: [
           TextButton(
             onPressed: () {
@@ -57,12 +69,11 @@ class _BookSearchPageState extends State<BookSearchPage> {
             },
             child: Text(
               'Recommendation',
-              style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
       ),
-
       body: Column(
         children: <Widget>[
           Padding(
@@ -101,6 +112,9 @@ class _BookSearchPageState extends State<BookSearchPage> {
                         itemBuilder: (context, index) {
                           final book = _books[index];
                           return ListTile(
+                            leading: book.imageUrl != null
+                                ? Image.network(book.imageUrl!)
+                                : SizedBox.shrink(), // Display image if available
                             title: Text(book.title),
                             subtitle: Text(book.author),
                           );
@@ -119,15 +133,26 @@ class _BookSearchPageState extends State<BookSearchPage> {
 class Book {
   final String title;
   final String author;
+  final String? imageUrl; // Make imageUrl nullable
 
-  Book({required this.title, required this.author});
+  Book({
+    required this.title,
+    required this.author,
+    this.imageUrl,
+  });
 
   factory Book.fromJson(Map<String, dynamic> json) {
+    // Extract image link from imageLinks property if available
+    String? imageUrl = json['volumeInfo']['imageLinks'] != null
+        ? json['volumeInfo']['imageLinks']['thumbnail']
+        : null;
+
     return Book(
       title: json['volumeInfo']['title'],
       author: json['volumeInfo']['authors'] != null
           ? json['volumeInfo']['authors'].join(', ')
           : 'Unknown Author',
+      imageUrl: imageUrl,
     );
   }
 }
