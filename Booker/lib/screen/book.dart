@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:booker/screen/recommend.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -49,7 +50,19 @@ class _BookSearchPageState extends State<BookSearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Book Search'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, ListPage.id);
+            },
+            child: Text(
+              'Recommendation',
+              style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+            ),
+          ),
+        ],
       ),
+
       body: Column(
         children: <Widget>[
           Padding(

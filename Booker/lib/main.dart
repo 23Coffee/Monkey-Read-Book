@@ -1,6 +1,7 @@
 
 import 'package:booker/screen/book.dart';
 import 'package:booker/screen/home.dart';
+import 'package:booker/screen/recommend.dart';
 import 'package:booker/screen/login.dart';
 import 'package:booker/screen/signinfo.dart';
 import 'package:booker/screen/signup.dart';
@@ -28,13 +29,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomeScreen.id,
+      initialRoute: BookSearchPage.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         SignUpPage.id: (context) => SignUpPage(),
         Confirmation.id: (context) => Confirmation(),
         BookSearchPage.id: (context) => BookSearchPage(),
+        ListPage.id: (context) => ListPage(),
       },
     );
   }
