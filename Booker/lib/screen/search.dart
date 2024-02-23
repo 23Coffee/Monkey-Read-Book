@@ -80,6 +80,15 @@ class _BookSearchPageState extends State<BookSearchPage> {
             padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    // Handle search action
+                    if (_searchController.text.isNotEmpty) {
+                      _searchBooks(_searchController.text);
+                    }
+                  },
+                ),
                 Expanded(
                   child: TextField(
                     controller: _searchController,
@@ -90,6 +99,12 @@ class _BookSearchPageState extends State<BookSearchPage> {
                       ),
                     ),
                   ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.mic),
+                  onPressed: () {
+                    // Handle voice search action
+                  },
                 ),
                 SizedBox(width: 8.0),
                 ElevatedButton(
@@ -115,6 +130,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
             ),
           ),
           Expanded(
+            
             child: _loading
                 ? Center(child: CircularProgressIndicator())
                 : _books.isNotEmpty
