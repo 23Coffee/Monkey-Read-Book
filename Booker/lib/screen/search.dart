@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:booker/screen/Category.dart';
 import 'package:booker/screen/recommend.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -65,7 +66,16 @@ class _BookSearchPageState extends State<BookSearchPage> {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, ListPage.id);
+              Navigator.pushNamed(context, CategoryScreen.id);
+            },
+            child: Text(
+              'Category',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RecommendPage.id);
             },
             child: Text(
               'Recommendation',
@@ -73,6 +83,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
             ),
           ),
         ],
+        
       ),
       body: Column(
         children: <Widget>[

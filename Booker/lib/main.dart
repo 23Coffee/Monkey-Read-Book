@@ -1,4 +1,5 @@
 
+import 'package:booker/screen/Category.dart';
 import 'package:booker/screen/search.dart';
 import 'package:booker/screen/ebook.dart';
 import 'package:booker/screen/home.dart';
@@ -37,8 +38,9 @@ class MyApp extends StatelessWidget {
         SignUpPage.id: (context) => SignUpPage(),
         Confirmation.id: (context) => Confirmation(),
         BookSearchPage.id: (context) => BookSearchPage(),
-        ListPage.id: (context) => ListPage(),
+        RecommendPage.id: (context) => RecommendPage(),
         EbookScreen.id: (context) => EbookScreen(),
+        CategoryScreen.id: (context) => CategoryScreen(),
       },
     );
   }

@@ -3,14 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:booker/screen/ebook.dart'; // Import the EbookScreen page
 
-class ListPage extends StatefulWidget {
+class RecommendPage extends StatefulWidget {
   static const String id = 'list_page';
 
   @override
-  _ListPageState createState() => _ListPageState();
+  _RecommendPageState createState() => _RecommendPageState();
 }
 
-class _ListPageState extends State<ListPage> {
+class _RecommendPageState extends State<RecommendPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
