@@ -14,10 +14,11 @@
 ![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/a05d6886-6113-4c46-9225-8d1fb1d18ae6)
 
 ### 2. Register Page
-![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/8ff83e8f-005f-4c72-b64e-e9c209a01409)
+![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/06ed2aff-7588-4565-a7f8-9e4ebfe80dd9)
+
 
 ### 3. Login Page
-![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/06ed2aff-7588-4565-a7f8-9e4ebfe80dd9)
+![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/8ff83e8f-005f-4c72-b64e-e9c209a01409)
 
 ### 4. Confirmation Page
 ![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/f93065d5-40f7-4e38-83b4-f569496d2373)
