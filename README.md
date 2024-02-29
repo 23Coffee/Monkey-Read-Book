@@ -2,9 +2,9 @@
 ## ITCS424_Wireless and Mobile Computing (Section 2)
 ### Members
 #### 6488002 Sirasan Srijirapattanakul
-#### 6488035
+#### 6488035 Teerut Krachangpoj
 #### 6488125 Phutthikanj Kitivoranondh
-#### 6488193
+#### 6488193 Thanapat Ritiluechai
 #### 6488217 Pattaradnai Kaeodumkoeng
 #
 
