@@ -8,7 +8,7 @@
 #### 6488217 Pattaradnai Kaeodumkoeng
 #
 
-##Screen Shot Preview of Application
+## Screen Shot Preview of Application
 
 ### 1. Home Page
 ![image](https://github.com/23Coffee/Monkey-Read-Book/assets/122808660/a05d6886-6113-4c46-9225-8d1fb1d18ae6)
