@@ -10,7 +10,7 @@ class EbookScreen extends StatefulWidget {
 }
 
 class _EbookScreenState extends State<EbookScreen> {
-  final TextEditingController _textController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:booker/screen/recommend.dart';
+import 'package:booker/screen/search.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -95,12 +96,8 @@ class CategoryScreen extends StatelessWidget {
   ) {
     return InkWell(
       onTap: () {
-        // Define the destination screen based on the category title
-        
-        if (title == 'Harry Potter Series') {
-          Navigator.pushNamed(context, RecommendPage.id);
-        }
-        
+        // Navigate to the search page with the selected category title as the search query
+        Navigator.pushNamed(context, BookSearchPage.id, arguments: title);
       },
       child: Container(
         padding: EdgeInsets.all(20.0),
