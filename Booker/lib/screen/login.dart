@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 59, 59, 59),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         automaticallyImplyLeading: false,
         title: Center(
           child: Text(
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   tag: 'logo',
                   child: Container(
                     height: 200.0,
-                    child: Image.asset('assets/user-login.png'),
+                    child: Image.asset('assets/moneky.png'),
                   ),
                 ),
               ),
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               RoundedButton(
                 title: 'Log In',
-                colour: Colors.lightBlueAccent,
+                colour: Color.fromARGB(255, 0, 0, 0),
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     try {

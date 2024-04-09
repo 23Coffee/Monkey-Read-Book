@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\User\Downloads\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\User\Desktop\Git Uploads\Monkey-Read-Book\Booker"
+export "FLUTTER_ROOT=C:\Users\ASUS\Downloads\flutter_windows_3.16.4-stable\flutter"
+export "FLUTTER_APPLICATION_PATH=D:\Flutter App\Booker"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"

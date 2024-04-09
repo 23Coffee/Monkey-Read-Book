@@ -84,7 +84,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         _isPlaying = true;
                       });
                     },
-                    child: Icon(Icons.play_arrow),
+                    child: Icon(Icons.play_arrow,
+                    color: Colors.black,
+                    ),
                   ),
                   SizedBox(width: 8.0),
                   if (_isPlaying)
@@ -95,12 +97,16 @@ class _DetailScreenState extends State<DetailScreen> {
                           _pause();
                         });
                       },
-                      child: Icon(Icons.pause),
+                      child: Icon(Icons.pause,
+                      color: Colors.black,
+                      ),
                     ),
                   SizedBox(width: 8.0),
                   ElevatedButton(
                     onPressed: _stop,
-                    child: Icon(Icons.stop),
+                    child: Icon(Icons.stop,
+                    color: Colors.black,
+                    ),
                   ),
                 ],
               ),
@@ -134,19 +140,28 @@ class _DetailScreenState extends State<DetailScreen> {
                     },
                   );
                 },
-                child: Text('Translate Description to English'),
+                child: Text('Translate Description to English',
+                style: TextStyle(
+                            color: Colors.black,
+                            ),
+                ),
               ),
               SizedBox(height: 8.0),
               ElevatedButton(
                 onPressed: () async {
                   String description = _book?.description ?? '';
                   String translatedText = await _translateToThai(description);
-                  
+                  _speakthai(translatedText);
                   showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: Text('Translated Description'),
+                        title: Text(
+                          'Translated Description',
+                          style: TextStyle(
+                            color: Colors.black,
+                            ),
+                          ),
                         content: Text(translatedText),
                         actions: [
                           TextButton(
@@ -160,7 +175,11 @@ class _DetailScreenState extends State<DetailScreen> {
                     },
                   );
                 },
-                child: Text('Translate Description to Thai'),
+                child: Text('Translate Description to Thai',
+                style: TextStyle(
+                            color: Colors.black,
+                            ),
+                ),
               ),
             ],
           ),
@@ -179,11 +198,16 @@ class _DetailScreenState extends State<DetailScreen> {
   Future<void> _speak(String text) async {
     await flutterTts.setLanguage('en-US');
     await flutterTts.setPitch(1.0);
-    await flutterTts.setSpeechRate(1.0);
+    await flutterTts.setSpeechRate(0.3);
     await flutterTts.speak(text);
   }
 
-  
+  Future<void> _speakthai(String text) async {
+    await flutterTts.setLanguage('th-TH');
+    await flutterTts.setPitch(1.0);
+    await flutterTts.setSpeechRate(0.5);
+    await flutterTts.speak(text);
+  }
 
   Future<void> _pause() async {
     await flutterTts.pause();

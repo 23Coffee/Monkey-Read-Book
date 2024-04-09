@@ -73,7 +73,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
   Future<void> speakText(String text) async {
     FlutterTts flutterTts = FlutterTts();
     await flutterTts.setLanguage('en-US');
-    await flutterTts.setSpeechRate(1.0);
+    await flutterTts.setSpeechRate(0.3);
     await flutterTts.setPitch(1.0);
     await flutterTts.speak(text);
   }
@@ -89,11 +89,10 @@ class _BookSearchPageState extends State<BookSearchPage> {
             Navigator.pop(context);
           },
         ),
-        title: Center(
-          child: Text(
-            'Book Search',
-            style: TextStyle(color: Colors.white),
-          ),
+        title: Text(
+          'Book Search',
+          style: TextStyle(color: Colors.white),
+          overflow: TextOverflow.ellipsis,
         ),
         actions: [
           TextButton(
@@ -104,15 +103,21 @@ class _BookSearchPageState extends State<BookSearchPage> {
               'Category',
               style: TextStyle(color: Colors.white),
             ),
+            style: TextButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                    horizontal: 8)), // Adjust padding as needed
           ),
           TextButton(
             onPressed: () {
               Navigator.pushNamed(context, RecommendPage.id);
             },
             child: Text(
-              'Recommendation',
+              'Recommend',
               style: TextStyle(color: Colors.white),
             ),
+            style: TextButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                    horizontal: 8)), // Adjust padding as needed
           ),
         ],
       ),
@@ -127,11 +132,32 @@ class _BookSearchPageState extends State<BookSearchPage> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      style: TextStyle(),
                       controller: _searchController,
                       decoration: InputDecoration(
                         labelText: 'Search for Books',
+                        labelStyle: TextStyle(
+                          color: Colors
+                              .black, // Sets label text color to black (when not focused)
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                              color: Colors.black), // Default border color
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                              color: Colors.black,
+                              width:
+                                  1.0), // Border color when the TextFormField is enabled
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                              color: Colors.black,
+                              width:
+                                  2.0), // Border color when the TextFormField is focused
                         ),
                       ),
                     ),
@@ -167,7 +193,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
                       ? GridView.builder(
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4,
+                            crossAxisCount: 2,
                             crossAxisSpacing: 8.0,
                             mainAxisSpacing: 8.0,
                             childAspectRatio: 0.6,
@@ -241,11 +267,19 @@ class _BookSearchPageState extends State<BookSearchPage> {
                                                   : null,
                                             ),
                                             onPressed: () async {
+                                              // Toggle liked status and store the result
+                                              bool willBeLiked = !book.liked;
+
+                                              // Update UI to reflect changes
                                               setState(() {
-                                                book.toggleLiked(); // Toggle liked status
+                                                book.toggleLiked();
                                               });
-                                              await speakText(
-                                                  '${book.title} by ${book.author}');
+
+                                              // Only speak if the book is now liked
+                                              if (willBeLiked) {
+                                                await speakText(
+                                                    '${book.title} by ${book.author}');
+                                              }
                                             },
                                           ),
                                         ],

@@ -1,8 +1,13 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="your_target_sdk_version" />
     <application
         android:label="Booker"
-        
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        tools:overrideLibrary="com.tundralabs.fluttertts">
         <activity
             android:name=".MainActivity"
             android:exported="true"

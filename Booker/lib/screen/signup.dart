@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 59, 59, 59),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         automaticallyImplyLeading: false,
         title: Center(
           child: Text(
@@ -68,7 +68,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/user-login.png",
+                    "assets/moneky.png",
                     width: 100,
                     height: 100,
                   ),
@@ -158,7 +158,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       width: double.infinity,
                       height: 45,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Color.fromARGB(255, 0, 0, 0),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
@@ -188,7 +188,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Text(
                           "Login",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold,
                           ),
                         ),

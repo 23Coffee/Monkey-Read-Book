@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 59, 59, 59),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         automaticallyImplyLeading: false,
         title: Center(
           child: Text(
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: <Widget>[
                   // Replace FutureBuilder with Image.asset
                   Image.asset(
-                    'assets/user-login.png', // Adjust the asset path as needed
+                    'assets/moneky.png', 
                     alignment: Alignment.center,
                     height: 300,
                     width: 300,
@@ -47,14 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   RoundedButton(
                     title: 'Log In',
-                    colour: Colors.lightBlueAccent,
+                    colour: Color.fromARGB(255, 0, 0, 0),
                     onPressed: () {
                       Navigator.pushNamed(context, LoginScreen.id);
                     },
                   ),
                   RoundedButton(
                     title: 'Register',
-                    colour: Colors.blueAccent,
+                    colour: Color.fromARGB(255, 0, 0, 0),
                     onPressed: () {
                       Navigator.pushNamed(context, SignUpPage.id);
                     },
