@@ -1,4 +1,3 @@
-
 import 'package:booker/screen/Category.dart';
 import 'package:booker/screen/detail.dart';
 import 'package:booker/screen/search.dart';
@@ -11,8 +10,6 @@ import 'package:booker/screen/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -20,9 +17,8 @@ void main() async {
       apiKey: 'AIzaSyDuZwACFk5raByCKz04V0g0rpcIIUbgto4',
       appId: "1:1035452793612:android:f0fa0d4f288aa7a32dbf29",
       messagingSenderId: "1035452793612",
-      projectId: "test1-4abd3", 
+      projectId: "test1-4abd3",
       storageBucket: "gs://test1-4abd3.appspot.com",
-      
     ),
   );
   runApp(MyApp());
@@ -34,7 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: LoginScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
@@ -45,7 +41,6 @@ class MyApp extends StatelessWidget {
         EbookScreen.id: (context) => EbookScreen(),
         CategoryScreen.id: (context) => CategoryScreen(),
         DetailScreen.id: (context) => DetailScreen(book: book),
-
       },
     );
   }

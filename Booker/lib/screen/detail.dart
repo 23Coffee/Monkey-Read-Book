@@ -141,7 +141,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 onPressed: () async {
                   String description = _book?.description ?? '';
                   String translatedText = await _translateToThai(description);
-                  _speakThai(translatedText);
+                  
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -183,12 +183,7 @@ class _DetailScreenState extends State<DetailScreen> {
     await flutterTts.speak(text);
   }
 
-  Future<void> _speakThai(String text) async {
-    await flutterTts.setLanguage('th-TH'); // Set the language to Thai
-    await flutterTts.setPitch(1.0);
-    await flutterTts.setSpeechRate(1.0);
-    await flutterTts.speak(text);
-  }
+  
 
   Future<void> _pause() async {
     await flutterTts.pause();
