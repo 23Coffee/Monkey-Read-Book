@@ -22,7 +22,26 @@ class _BookSearchPageState extends State<BookSearchPage> {
   void initState() {
     super.initState();
     _searchController = TextEditingController();
-    _setDefaultSearchQuery(); // Set default search query
+
+    // Add this to handle the incoming arguments:
+    Future.microtask(() => _handleIncomingArguments());
+  }
+
+  void _handleIncomingArguments() {
+    // Assuming you're using ModalRoute to access the arguments
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args is String) {
+      _setDefaultSearchQuery(
+          args); // Use the category title as the default search query
+    } else {
+      _setDefaultSearchQuery(); // Call the default search query without arguments
+    }
+  }
+
+  void _setDefaultSearchQuery([String? defaultQuery]) {
+    // Modified to accept an optional parameter
+    final query = defaultQuery ?? 'Flutter'; // Use 'Flutter' as fallback
+    _searchBooks(query);
   }
 
   @override
@@ -32,12 +51,6 @@ class _BookSearchPageState extends State<BookSearchPage> {
     if (category != null) {
       _searchBooks(category); // Use the category as the search query
     }
-  }
-
-  void _setDefaultSearchQuery() {
-    // Set your default search query here
-    String defaultQuery = 'Flutter';
-    _searchBooks(defaultQuery);
   }
 
   Future<void> _searchBooks(String query) async {
