@@ -1,0 +1,1 @@
+ C:\\Users\\ASUS\\Desktop\\Github\ upload\\Monkey-Read-Book\\Booker\\.dart_tool\\flutter_build\\e21564a16cd6b772be77d07ce78e95dc\\native_assets.yaml: 

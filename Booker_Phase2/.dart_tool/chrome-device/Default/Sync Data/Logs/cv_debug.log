@@ -1,0 +1,22 @@
+{"logTime": "0223/144623", "correlationVector":"vjP1E7Z1gproHJvHGr6y0a.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL0300001R"}}
+{"logTime": "0223/144623", "correlationVector":"vjP1E7Z1gproHJvHGr6y0a","action":"Initial GetUpdates", "result":"", "context":Reason: NEW_CLIENT. cV=vjP1E7Z1gproHJvHGr6y0a}
+{"logTime": "0223/144623", "correlationVector":"vjP1E7Z1gproHJvHGr6y0a.2","action":"GetUpdates Response", "result":"SYNCER_OK", "context":Received 1 update(s). cV=vjP1E7Z1gproHJvHGr6y0a.0;server=GENERAL0300001R;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0223/144719", "correlationVector":"aw7zRxW2fU4wnccolavOqW","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"", "migrationStage":"", "server":""}}
+{"logTime": "0223/144719", "correlationVector":"MTfu4e2EEXYe+8R2wiOxh1","action":"Initial GetUpdates", "result":"", "context":Reason: NEW_CLIENT. cV=MTfu4e2EEXYe+8R2wiOxh1}
+{"logTime": "0223/144719", "correlationVector":"MTfu4e2EEXYe+8R2wiOxh1.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL0100000B"}}
+{"logTime": "0223/144719", "correlationVector":"MTfu4e2EEXYe+8R2wiOxh1.2","action":"GetUpdates Response", "result":"SYNCER_OK", "context":Received 6 update(s). cV=MTfu4e2EEXYe+8R2wiOxh1.0;server=GENERAL0100000B;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0223/144719", "correlationVector":"sdAOlJfw3+5UcSASbBvSU3","action":"Normal GetUpdate request", "result":"", "context":cV=sdAOlJfw3+5UcSASbBvSU3
+Nudged types: Device Info, User Consents
+Refresh requested types: Device Info, User Consents, Send Tab To Self, Encryption Keys}
+{"logTime": "0223/144719", "correlationVector":"sdAOlJfw3+5UcSASbBvSU3.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL0100000M"}}
+{"logTime": "0223/144719", "correlationVector":"sdAOlJfw3+5UcSASbBvSU3.2","action":"GetUpdates Response", "result":"SYNCER_OK", "context":Received 0 update(s). cV=sdAOlJfw3+5UcSASbBvSU3.0;server=GENERAL0100000M;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0223/144719", "correlationVector":"sWOSIG5rrRbe6Eow/gJneY","action":"Commit Request", "result":"", "context":Item count: 1
+Contributing types: Device Info}
+{"logTime": "0223/144719", "correlationVector":"sWOSIG5rrRbe6Eow/gJneY.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL0100000H"}}
+{"logTime": "0223/144719", "correlationVector":"sWOSIG5rrRbe6Eow/gJneY.2","action":"Commit Response", "result":"SYNCER_OK", "context":Result: SYNCER_OK. cV=sWOSIG5rrRbe6Eow/gJneY.0;server=GENERAL0100000H;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0223/144719", "correlationVector":"dZwpSyBE/ffXYuET6rDLFl","action":"Commit Request", "result":"", "context":Item count: 1
+Contributing types: User Consents}
+{"logTime": "0223/144720", "correlationVector":"dZwpSyBE/ffXYuET6rDLFl.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL0300001O"}}
+{"logTime": "0223/144720", "correlationVector":"dZwpSyBE/ffXYuET6rDLFl.2","action":"Commit Response", "result":"SYNCER_OK", "context":Result: SYNCER_OK. cV=dZwpSyBE/ffXYuET6rDLFl.0;server=GENERAL0300001O;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0223/144720", "correlationVector":"u4gnu/VFzeCmveZseSOUSO","action":"Normal GetUpdate request", "result":"", "context":cV=u4gnu/VFzeCmveZseSOUSO
+Nudged types: Device Info}
