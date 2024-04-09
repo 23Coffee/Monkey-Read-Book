@@ -4,6 +4,7 @@ import 'package:booker/screen/detail.dart';
 import 'package:booker/screen/recommend.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_tts/flutter_tts.dart';
 
 class BookSearchPage extends StatefulWidget {
   static const String id = 'book_search_page';
@@ -16,8 +17,6 @@ class _BookSearchPageState extends State<BookSearchPage> {
   late TextEditingController _searchController;
   List<Book> _books = [];
   bool _loading = false;
-  
-  
 
   @override
   void initState() {
@@ -25,6 +24,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
     _searchController = TextEditingController();
     _setDefaultSearchQuery(); // Set default search query
   }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -39,6 +39,7 @@ class _BookSearchPageState extends State<BookSearchPage> {
     String defaultQuery = 'Flutter';
     _searchBooks(defaultQuery);
   }
+
   Future<void> _searchBooks(String query) async {
     setState(() {
       _loading = true;
@@ -46,28 +47,36 @@ class _BookSearchPageState extends State<BookSearchPage> {
     });
 
     try {
-    final response = await http.get(
-      Uri.parse('https://www.googleapis.com/books/v1/volumes?q=$query'),
-    );
+      final response = await http.get(
+        Uri.parse('https://www.googleapis.com/books/v1/volumes?q=$query'),
+      );
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final List<dynamic> items = data['items'] ?? [];
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final List<dynamic> items = data['items'] ?? [];
 
+        setState(() {
+          _books = items.map((item) => Book.fromJson(item)).toList();
+          _loading = false;
+        });
+      } else {
+        throw Exception('Failed to load books');
+      }
+    } catch (error) {
+      print('Error: $error');
       setState(() {
-        _books = items.map((item) => Book.fromJson(item)).toList();
         _loading = false;
       });
-    } else {
-      throw Exception('Failed to load books');
     }
-  } catch (error) {
-    print('Error: $error');
-    setState(() {
-      _loading = false;
-    });
   }
-}
+
+  Future<void> speakText(String text) async {
+    FlutterTts flutterTts = FlutterTts();
+    await flutterTts.setLanguage('en-US');
+    await flutterTts.setSpeechRate(1.0);
+    await flutterTts.setPitch(1.0);
+    await flutterTts.speak(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +180,8 @@ class _BookSearchPageState extends State<BookSearchPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => DetailScreen(book: book),
+                                    builder: (context) =>
+                                        DetailScreen(book: book),
                                   ),
                                 );
                               },
@@ -221,6 +231,23 @@ class _BookSearchPageState extends State<BookSearchPage> {
                                               fontSize: 14.0,
                                             ),
                                           ),
+                                          IconButton(
+                                            icon: Icon(
+                                              book.liked
+                                                  ? Icons.favorite
+                                                  : Icons.favorite_border,
+                                              color: book.liked
+                                                  ? Colors.red
+                                                  : null,
+                                            ),
+                                            onPressed: () async {
+                                              setState(() {
+                                                book.toggleLiked(); // Toggle liked status
+                                              });
+                                              await speakText(
+                                                  '${book.title} by ${book.author}');
+                                            },
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -251,6 +278,7 @@ class Book {
   final List<String>? categories;
   final String? previewLink;
   final String? infoLink;
+  bool liked;
 
   Book({
     required this.title,
@@ -262,6 +290,7 @@ class Book {
     this.categories,
     this.previewLink,
     this.infoLink,
+    this.liked = false, // Initialize liked status as false
   });
 
   factory Book.fromJson(Map<String, dynamic> json) {
@@ -288,5 +317,7 @@ class Book {
       infoLink: json['volumeInfo']['infoLink'],
     );
   }
+  void toggleLiked() {
+    liked = !liked; // Toggle liked status
+  }
 }
-

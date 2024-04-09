@@ -38,7 +38,9 @@ dependencies:
   firebase_auth: ^4.17.5
   email_validator: ^2.1.17
   firebase_database: ^10.4.6
-  
+  flutter_tts: ^4.0.2
+  translator: ^1.0.0
+
   
 
 dev_dependencies:
