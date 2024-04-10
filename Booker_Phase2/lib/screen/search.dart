@@ -55,27 +55,31 @@ class _BookSearchPageState extends State<BookSearchPage> {
 
   Future<void> _searchBooks(String query) async {
     setState(() {
+      // Set loading state and clear books list
       _loading = true;
       _books.clear();
     });
-
+    // Send HTTP GET request to Google Books API with the provided query
     try {
       final response = await http.get(
         Uri.parse('https://www.googleapis.com/books/v1/volumes?q=$query'),
       );
-
+      // Check if the response status code is OK (200)
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final List<dynamic> items = data['items'] ?? [];
-
+        // Update state with fetched books
         setState(() {
+          // Convert each item in the 'items' list to a Book object and add to _books list
           _books = items.map((item) => Book.fromJson(item)).toList();
           _loading = false;
         });
       } else {
+        // Throw exception if the response status code is not OK (200)
         throw Exception('Failed to load books');
       }
     } catch (error) {
+      // Catch and handle any errors that occur during the HTTP request
       print('Error: $error');
       setState(() {
         _loading = false;
@@ -341,11 +345,12 @@ class Book {
   });
 
   factory Book.fromJson(Map<String, dynamic> json) {
+    // Extract imageUrl from JSON if available
     String? imageUrl;
     if (json['volumeInfo']['imageLinks'] != null) {
       imageUrl = json['volumeInfo']['imageLinks']['thumbnail'];
     }
-
+    // Return a new Book instance with parsed JSON data
     return Book(
       title: json['volumeInfo']['title'],
       author: json['volumeInfo']['authors'] != null

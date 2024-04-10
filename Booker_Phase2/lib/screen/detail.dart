@@ -166,7 +166,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         actions: [
                           TextButton(
                             onPressed: () {
+                              
                               Navigator.of(context).pop();
+                              _stop();
                             },
                             child: Text('Close'),
                           ),

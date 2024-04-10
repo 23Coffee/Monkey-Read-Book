@@ -23,6 +23,7 @@ class _ConfirmationState extends State<Confirmation> {
 
   Future<void> _registerUser() async {
     try {
+      // Attempt to create user with email and password in firebase authentication
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: widget.user!.email!,
         password: widget.user!.password!,

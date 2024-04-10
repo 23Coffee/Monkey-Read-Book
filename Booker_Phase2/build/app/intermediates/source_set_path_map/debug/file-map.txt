@@ -13,18 +13,18 @@ com.pattaradnai.project.app-core-1.9.0-11 C:\Users\ASUS\.gradle\caches\transform
 com.pattaradnai.project.app-jetified-core-ktx-1.9.0-12 C:\Users\ASUS\.gradle\caches\transforms-3\d4658de2840fba533b6e37b2e7978190\transformed\jetified-core-ktx-1.9.0\res
 com.pattaradnai.project.app-browser-1.4.0-13 C:\Users\ASUS\.gradle\caches\transforms-3\e22b4f4bf24b15e7a89a8de5f5000a73\transformed\browser-1.4.0\res
 com.pattaradnai.project.app-jetified-play-services-basement-18.3.0-14 C:\Users\ASUS\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\res
-com.pattaradnai.project.app-debug-15 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\android\app\src\debug\res
-com.pattaradnai.project.app-main-16 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\android\app\src\main\res
-com.pattaradnai.project.app-RES-17 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\RES\processDebugGoogleServices
-com.pattaradnai.project.app-pngs-18 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\generated\res\pngs\debug
-com.pattaradnai.project.app-resValues-19 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\generated\res\resValues\debug
-com.pattaradnai.project.app-rs-20 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\generated\res\rs\debug
-com.pattaradnai.project.app-mergeDebugResources-21 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.pattaradnai.project.app-mergeDebugResources-22 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.pattaradnai.project.app-merged_res-23 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\app\intermediates\merged_res\debug
-com.pattaradnai.project.app-packaged_res-24 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\cloud_firestore\intermediates\packaged_res\debug
-com.pattaradnai.project.app-packaged_res-25 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\firebase_auth\intermediates\packaged_res\debug
-com.pattaradnai.project.app-packaged_res-26 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\firebase_core\intermediates\packaged_res\debug
-com.pattaradnai.project.app-packaged_res-27 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\firebase_database\intermediates\packaged_res\debug
-com.pattaradnai.project.app-packaged_res-28 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\firebase_storage\intermediates\packaged_res\debug
-com.pattaradnai.project.app-packaged_res-29 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker\build\flutter_tts\intermediates\packaged_res\debug
+com.pattaradnai.project.app-debug-15 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\android\app\src\debug\res
+com.pattaradnai.project.app-main-16 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\android\app\src\main\res
+com.pattaradnai.project.app-RES-17 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\RES\processDebugGoogleServices
+com.pattaradnai.project.app-pngs-18 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\generated\res\pngs\debug
+com.pattaradnai.project.app-resValues-19 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\generated\res\resValues\debug
+com.pattaradnai.project.app-rs-20 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\generated\res\rs\debug
+com.pattaradnai.project.app-mergeDebugResources-21 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.pattaradnai.project.app-mergeDebugResources-22 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.pattaradnai.project.app-merged_res-23 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\app\intermediates\merged_res\debug
+com.pattaradnai.project.app-packaged_res-24 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\cloud_firestore\intermediates\packaged_res\debug
+com.pattaradnai.project.app-packaged_res-25 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\firebase_auth\intermediates\packaged_res\debug
+com.pattaradnai.project.app-packaged_res-26 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\firebase_core\intermediates\packaged_res\debug
+com.pattaradnai.project.app-packaged_res-27 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\firebase_database\intermediates\packaged_res\debug
+com.pattaradnai.project.app-packaged_res-28 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\firebase_storage\intermediates\packaged_res\debug
+com.pattaradnai.project.app-packaged_res-29 C:\Users\ASUS\Desktop\Github upload\Monkey-Read-Book\Booker_Phase2\build\flutter_tts\intermediates\packaged_res\debug

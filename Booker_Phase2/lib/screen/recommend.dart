@@ -38,19 +38,29 @@ class _RecommendPageState extends State<RecommendPage> {
         future: Firebase.initializeApp(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+                child:
+                    CircularProgressIndicator()); // Show loading indicator while initializing Firebase
           }
           if (snapshot.hasError) {
-            return Center(child: Text('Error initializing Firebase: ${snapshot.error}'));
+            return Center(
+                child: Text(
+                    'Error initializing Firebase: ${snapshot.error}')); // Show error message if Firebase initialization fails
           }
           return StreamBuilder(
-            stream: FirebaseFirestore.instance.collection('Recommendation').snapshots(),
+            stream: FirebaseFirestore
+                .instance // Stream for fetching data from Firestore
+                .collection('Recommendation')
+                .snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
               }
               if (snapshot.hasError) {
-                return Center(child: Text('Error fetching data from Firestore: ${snapshot.error}'));
+                return Center(child: Text(
+                    // Show error message if fetching data fails
+
+                    'Error fetching data from Firestore: ${snapshot.error}'));
               }
               return ListView.builder(
                 shrinkWrap: true,
@@ -61,7 +71,8 @@ class _RecommendPageState extends State<RecommendPage> {
                     cursor: SystemMouseCursors.click,
                     child: GestureDetector(
                       onTap: () {
-                        if (document['book_name'] == "HARRY POTTER AND THE PHILOSOPHER'S STONE") {
+                        if (document['book_name'] ==
+                            "HARRY POTTER AND THE PHILOSOPHER'S STONE") {
                           Navigator.pushNamed(context, EbookScreen.id);
                         }
                       },
